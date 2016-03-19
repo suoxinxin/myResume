@@ -289,20 +289,48 @@ html,body{
 .img{
     -webkit-animation: music 1s linear infinite;
 }
-/*loadBox部分*/
-.loadBox {
-    position: fixed;
-    bottom: 5%;
-    width:100%;
-    height:3px;
-    border-radius: 10px;
-    z-index: 100;
-    border: 1px solid red;
+
+/*.in {*/
+/*position: fixed;*/
+/*bottom: 5%;*/
+/*width:100%;*/
+/*height:3px;*/
+/*border-radius: 10px;*/
+/*z-index: 100;*/
+/*border: 1px solid red;*/
+/*}*/
+/*.center {*/
+/*display: block;*/
+/*height: 100%;*/
+/*width:0%;*/
+/*background-color: #08A1EF;*/
+/*transition: 1s;*/
+/*}*/
+
+/*loading部分*/
+#loading {
+    width: 100%;
+    height: 100%;
+    background:black;
+    position: absolute;
+    z-index: 11;
 }
+
+.loadBox {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    height: 10px;
+    border-radius: 10px;
+    background: white;
+    overflow: hidden;
+}
+
 .progress {
     display: block;
-    height: 100%;
-    width:0%;
-    background-color: #08A1EF;
+    width: 0;
+    height: 40px;
+    background: green;
     transition: 1s;
+    -webkit-transition: 1s;
 }

@@ -7,7 +7,7 @@ var winW = document.documentElement.clientWidth;
 var winH = document.documentElement.clientHeight;
 var desW = 640;
 var desH = 960;
-if (winW / winH < desW / desH) {
+if (winW / winH <= desW / desH) {
     main.style.webkitTransform = "scale(" + winH / desH + ")";
 } else {
     main.style.webkitTransform = "scale(" + winW / desW + ")";
@@ -20,8 +20,9 @@ if (winW / winH < desW / desH) {
     oLi.addEventListener("touchend", end, false);
 });
 
-music.play();
+
 function start(e) {
+    music.play();
     this.touchStart = e.changedTouches[0].pageX;
 }
 function move(e) {
@@ -74,12 +75,34 @@ img.addEventListener("touchstart", function () {
     }
 }, false);
 
-//loadBox部分：加载整个页面
-//var progress = getEle(".progress");
+//var center = getEle(".center");
 //var arr = ['1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg', '6.jpg'];
 //for (var i = 0; i < arr.length; i++) {
 //    arr[i].index=i;
 //    arr[i].addEventListener("touchmove", function () {
-//        progress.style.width = (this.index + 1) / arr.length * 100 + "%";
+//        center.style.width = (this.index + 1) / arr.length * 100 + "%";
 //    }, false);
 //}
+
+var num = 0;
+function fnLoad() {
+    var progress = getEle(".progress");
+    var loading = getEle("#loading");
+    var arr = ['1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg', '6.jpg'];
+    for (var i = 0; i < arr.length; i++) {
+        var oImg = new Image();
+        oImg.src = "img/" + arr[i];
+        oImg.onload = function () {
+            num++;
+            progress.style.width = num / arr.length * 100 + "%";
+            if (num == arr.length && loading) {
+                progress.addEventListener("webkitTransitionEnd", function () {
+                    main.removeChild(loading);
+                    loading = null;
+                }, false)
+            }
+        }
+    }
+
+}
+fnLoad();
