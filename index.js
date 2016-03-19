@@ -34,9 +34,9 @@ function fnLoad() {
     }
 }
 fnLoad();
-var timer=window.setTimeout(function(){
+window.setTimeout(function () {
     music.play();
-},1000);
+}, 1000);
 
 [].forEach.call(oLis, function () {
     var oLi = arguments[0];
