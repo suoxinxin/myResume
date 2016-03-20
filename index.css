@@ -1,4 +1,10 @@
 *{
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-touch-callout: none;
+    -webkit-overflow-scrolling:touch;
+    -webkit-text-size-adjust: 100%;
+    -webkit-user-select: none;
+    font-family: "\5FAE\8F6F\96C5\9ED1", Helvetica, sans-serif;
     margin:0;
     padding: 0;
 }
@@ -95,10 +101,20 @@ html,body{
 }
 .a2{
     position: absolute;
-    top:20%;
-    left:10%;
+    top:10%;
+    width: 90%;
+    height: 80%;
+    margin:10% 5% 1%;
     font-size: 33px;
+    /*animation: in 1s linear;*/
 }
+/*@keyframes in {*/
+    /*0%{*/
+        /*transform: rotate(0deg);*/
+    /*}*/
+    /*100%{transform: rotate(30deg);}*/
+/*}*/
+
 .a2 p{
     float: left;
     background: palegreen;
@@ -150,7 +166,7 @@ html,body{
 }
 .a3 p{
     width:400px;
-    height: 170px;
+    height:170px;
     border-radius: 3px;
     box-shadow: 0 0 5px 3px #fff;
     color:black;
@@ -163,15 +179,15 @@ html,body{
     transform: rotate(0deg) scale(0.2);
     opacity: 0;
 }
-.a3 p:nth-child(2){
+.a3 p:nth-of-type(1){
      left:5%;
      top:30%;
  }
-.a3 p:nth-child(3){
+.a3 p:nth-of-type(2){
     left:5%;
     top:50%;
 }
-.a3 p:nth-child(4){
+.a3 p:nth-of-type(3){
     left:5%;
     top:76%;
 }
@@ -180,6 +196,45 @@ html,body{
     opacity: 1;
     transition: 2s;
     -webkit-transition:2s;
+}
+@keyframes flower1 {
+    0%{transform:translate(0,0);}
+    100%{
+        transform:translate(300px,700px);
+    }
+}
+@keyframes flower2 {
+    0%{transform:translate(0,0);}
+    100%{
+        transform:translate(100px,700px);
+    }
+}
+@keyframes flower3 {
+    0%{transform:translate(0,0);}
+    100%{
+        transform:translate(10px,700px);
+    }
+}
+.a3 img:nth-of-type(1){
+    position: absolute;
+    top:0;
+    left:20%;
+    animation: flower2 3s linear infinite;
+    z-index: 4;
+}
+.a3 img:nth-of-type(2){
+    position: absolute;
+    top:0;
+    left:20%;
+    animation: flower1 3s linear infinite;
+    z-index: 4;
+}
+.a3 img:nth-of-type(3){
+    position: absolute;
+    top:10%;
+    right:10%;
+    animation: flower3 3s linear infinite;
+    z-index: 4;
 }
 .a4 h2{
     position: absolute;
@@ -203,29 +258,37 @@ html,body{
 }
 #a4 p:nth-child(1){
     -webkit-animation: bounceInDown 1s both 1.5s;
+    animation: bounceInDown 1s both 1.5s;
     left:40%;
     top:10%;
     transition:width 1s linear 1.5s;
+    -webkit-transition:width 1s linear 1.5s;
     width:300px;
 }
 #a4 p:nth-child(2){
     -webkit-animation: bounceInDown 1s both 1.2s;
+    animation: bounceInDown 1s both 1.2s;
     left:50%;
     top:33%;
+    -webkit-transition:width 1s linear 1.2s;
     transition:width 1s linear 1.2s;
     width:300px;
 }
 #a4 p:nth-child(3){
     -webkit-animation: bounceInDown 1s both 0.8s;
+    animation: bounceInDown 1s both 0.8s;
     left:30%;
     top:60%;
+    -webkit-transition:width 1s linear 0.8s;
     transition:width 1s linear 0.8s;
     width:400px;
 }
 #a4 p:nth-child(4){
     -webkit-animation: bounceInDown 1s both 0s;
+    animation: bounceInDown 1s both 0s;
     left:10%;
     top:82%;
+    -webkit-transition:width 1s linear 0.5s;
     transition:width 1s linear 0.5s;
     width:400px;
 }
@@ -263,16 +326,20 @@ html,body{
     position: absolute;
     left: 36%;
     top: 28%;
+    animation: move 2s infinite;
     -webkit-animation: move 2s infinite;
     -webkit-transform-origin:top;
+    transform-origin:top;
 }
 
 @-webkit-keyframes move {
     0%,100%{
         -webkit-transform: rotate(-30deg);
+        transform: rotate(-30deg);
     }
     50%{
         -webkit-transform: rotate(30deg);
+        transform: rotate(30deg);
     }
 }
 .a6 img:nth-child(2){
@@ -283,11 +350,14 @@ html,body{
     bottom: 10px;
 }
 @keyframes music{
-    0%{transform:rotate(0deg);}
-    100%{transform:rotate(360deg);}
+    0%{transform:rotate(0deg);
+        -webkit-transform: rotate(0deg);}
+    100%{transform:rotate(360deg);
+        -webkit-transform: rotate(360deg);}
 }
 .img{
     -webkit-animation: music 1s linear infinite;
+    animation: music 1s linear infinite;
 }
 /*loading部分*/
 #loading {
